@@ -7,11 +7,12 @@ class Dice {
 public:
 
     Dice(int sizeIn) {
+        srand(time(0));
         _size = sizeIn;
     }
 
     int roll() {
         int randomNumber = rand();
-        return randomNumber % _size;
+        return (randomNumber % _size) + 1;
     }
 };
