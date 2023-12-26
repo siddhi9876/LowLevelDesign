@@ -30,4 +30,13 @@ public:
     string getName() {
         return name;
     }
+
+    void printMoves() {
+        cout << "Output Player: "<< name <<" Steps: "<<endl;
+        for(int i = 0; i < moves.size(); i++) {
+            cout<<moves[i]<<" ";
+        }
+
+        cout<<endl;
+    }
 };
