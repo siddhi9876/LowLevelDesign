@@ -28,9 +28,33 @@ public:
     /*
         find final position of player if player lands at curr position
     */
-    int findFinalPosition(int currPosition) {
-        //TODO: Write logic
-        return 10;
+    int findFinalPosition(int currPosition, int steps) {
+
+        //Check if the move is valid else return initial position only
+        if((currPosition + steps) > boardSize) {
+            return currPosition;
+        }
+
+        int finalPosition = currPosition + steps;
+        
+        //assuming ladders and snake start doesn't collide
+        //In case collide, ladder is given priority
+        //consecutive ladders or snake not allowed as of now
+        for(int i = 0; i < ladders.size(); i++) {
+            if(finalPosition == ladders[i].getStart()) {
+                finalPosition = ladders[i].getEnd();
+                return finalPosition;
+            }
+        }
+
+        for(int i = 0; i < snakes.size(); i++) {
+            if(finalPosition == snakes[i].getStart()) {
+                finalPosition = snakes[i].getEnd();
+                return finalPosition;
+            }
+        }
+
+        return finalPosition;
     }
     
     /*
