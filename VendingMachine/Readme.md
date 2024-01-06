@@ -1,0 +1,1 @@
+This example shows implementation of **State Design Pattern**
